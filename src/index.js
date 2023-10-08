@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const child1 = React.createElement('p', {}, "I am a child2")
 const child2 = React.createElement('p', {}, "I am a child2")
 const div = React.createElement('div', {className: 'text'}, [child1, child2])
