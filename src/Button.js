@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 
-const Button = (props) => {
-    console.log(props)
+const Button = memo((props) => {
+    console.log("rendering Button")
     const {children, clickAction, data} = props
     const handleClick = () => {
         clickAction?.()
@@ -11,6 +11,6 @@ const Button = (props) => {
         + 
         {data?.a?.b?.c}
         </button>
-}
+})
 
 export default Button;
