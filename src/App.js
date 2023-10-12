@@ -1,22 +1,12 @@
-import React, {useState, u, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import Button from './Button'
 import Text from './Text'
-
+import Timer from './Timer'
 const App = () => {
-    const [message, updateMessage] = useState("hello user, good morning")
-
-    const changeMessage = useCallback(() => {
-        // console.log("before update", message)
-        updateMessage((prevData) => {
-            console.log("previous data is", prevData)
-
-            return "hello user, good afternoon"
-        })
-        // console.log("after update", message)
-    }, [])
+    const [showTimer, toggleTimer] = useState(true)
     return <>
-    <div>{message}</div>
-    <Button clickAction={changeMessage}>Change Message</Button>
+    {showTimer && <Timer customText="this is a good clock"/>}
+    <button onClick={() => toggleTimer(!showTimer)}>Toggle Timer from app</button>
     </>
 }
 
