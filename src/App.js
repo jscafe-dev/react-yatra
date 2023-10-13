@@ -1,38 +1,38 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React, {useState, useCallback, useEffect, useRef} from 'react';
 import Button from './Button'
 import Text from './Text'
 import Timer from './Timer'
 import ButtonWithTooltip from './ButtonWithTooltip'
+import Input from './Input'
 const App = () => {
-    
+    let myLocal = 0
+    console.log("myLocal", myLocal)
+    const ref = useRef(0)
+    const [myCount, setCount] = useState(0)
+    console.log("ref.current", ref.current)
+
+    const inputRef = useRef(null)
+
     return <>
-   <ButtonWithTooltip
-        tooltipContent={
-          <div>
-            This tooltip does not fit above the button.
-            <br />
-            This is why it's displayed below instead!
-          </div>
-        }
-      >
-        Hover over me (tooltip above)
-      </ButtonWithTooltip>
-      <div style={{ height: 50 }} />
-      <ButtonWithTooltip
-        tooltipContent={
-          <div>This tooltip fits above the button</div>
-        }
-      >
-        Hover over me (tooltip below)
-      </ButtonWithTooltip>
-      <div style={{ height: 50 }} />
-      <ButtonWithTooltip
-        tooltipContent={
-          <div>This tooltip fits above the button</div>
-        }
-      >
-        Hover over me (tooltip below)
-      </ButtonWithTooltip>
+      <button onClick={() => {myLocal+= 1}}>Change local variable</button>
+      <button onClick={() => {ref.current += 1}}>Change ref</button>
+      <button onClick={() => {setCount((prevCount) => prevCount + 1)}}>Change state</button>
+
+      <div>
+        <span>Local var: {myLocal}</span><br/>
+        <span>ref: {ref.current}</span><br/>
+        <span>state variable: {myCount}</span><br/>
+      </div>
+
+      <h4>Timer example</h4>
+      <Timer>This is my timer</Timer>
+
+      <h4>DOM example</h4>
+      <Input ref={inputRef} />
+      <button onClick={() => {
+        console.log(inputRef.current.getBoundingClientRect())
+        if (inputRef.current) inputRef.current.focus()
+      }}>Focus the inputbox</button>
     </>
 }
 
