@@ -4,35 +4,25 @@ import Text from './Text'
 import Timer from './Timer'
 import ButtonWithTooltip from './ButtonWithTooltip'
 import Input from './Input'
+import SecondParent from './SecondParent'
 const App = () => {
-    let myLocal = 0
-    console.log("myLocal", myLocal)
-    const ref = useRef(0)
-    const [myCount, setCount] = useState(0)
-    console.log("ref.current", ref.current)
-
-    const inputRef = useRef(null)
-
+    const [count1, setCount] = useState(0)
+    const [count2, setCount2] = useState(0)
+    const handleClick = () => {
+      setCount((prev) => prev+1)
+      console.log("I am parent count 1")
+    }
+    const handleClick2 = () => {
+      setCount2((prev) => prev+1)
+      console.log("I am parent count 2")
+    }
     return <>
-      <button onClick={() => {myLocal+= 1}}>Change local variable</button>
-      <button onClick={() => {ref.current += 1}}>Change ref</button>
-      <button onClick={() => {setCount((prevCount) => prevCount + 1)}}>Change state</button>
-
-      <div>
-        <span>Local var: {myLocal}</span><br/>
-        <span>ref: {ref.current}</span><br/>
-        <span>state variable: {myCount}</span><br/>
-      </div>
-
-      <h4>Timer example</h4>
-      <Timer>This is my timer</Timer>
-
-      <h4>DOM example</h4>
-      <Input ref={inputRef} />
-      <button onClick={() => {
-        console.log(inputRef.current.getBoundingClientRect())
-        if (inputRef.current) inputRef.current.focus()
-      }}>Focus the inputbox</button>
+        Outer most parent:  <br/>
+        {count1} <button onClick={handleClick}>count++</button> 
+        <br/>
+        {count2} <button onClick={handleClick2}>count2++</button>
+        <br/>
+        <SecondParent count={count1}/>
     </>
 }
 
