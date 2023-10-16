@@ -5,24 +5,16 @@ import Timer from './Timer'
 import ButtonWithTooltip from './ButtonWithTooltip'
 import Input from './Input'
 import SecondParent from './SecondParent'
+import PrintTable from './PrintTable'
 const App = () => {
-    const [count1, setCount] = useState(0)
-    const [count2, setCount2] = useState(0)
-    const handleClick = () => {
-      setCount((prev) => prev+1)
-      console.log("I am parent count 1")
-    }
-    const handleClick2 = () => {
-      setCount2((prev) => prev+1)
-      console.log("I am parent count 2")
-    }
+    const [counter1, setCounter1] = useState(0)
+    const [counter2, setCounter2] = useState(0)
     return <>
-        Outer most parent:  <br/>
-        {count1} <button onClick={handleClick}>count++</button> 
+        Counter1: {counter1} <button onClick={() => setCounter1((prev) => prev+1)}>count1++</button>
         <br/>
-        {count2} <button onClick={handleClick2}>count2++</button>
+        Counter2: {counter2} <button onClick={() => setCounter2((prev) => prev+1)}>count2++</button>
         <br/>
-        <SecondParent count={count1}/>
+        <PrintTable num={counter1}/>
     </>
 }
 
