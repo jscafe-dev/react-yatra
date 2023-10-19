@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { createPortal } from 'react-dom';
+import { useSelector, useDispatch } from 'react-redux'
+import { increment, decrement, incByAmount } from './counterSlice'
 import Button from './Button'
 // import Text from './Text'
 import Timer from './Timer'
@@ -12,13 +14,13 @@ import Navbar from './Navbar';
 import {ThemeContext} from './context'
 
 const App = () => {
-    const [showModal, toggleModal] = useState(false);
-
+  const count = useSelector((state) => state.counter.counterValue)
+  const dispatch = useDispatch()
     return <>
-      Hey i am inside root <button onClick={() => toggleModal((prev) => !prev)}>Toggle Modal</button>
-
-      {showModal && createPortal(<div>This is modal content</div>, document.body)}
-      {/* {showModal && <div>This is modal content</div>} */}
+    {count}
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
+      <button onClick={() => dispatch(incByAmount(5))}>Inc by amount</button>
     </>
 }
 
