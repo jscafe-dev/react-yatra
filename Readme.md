@@ -4,9 +4,9 @@
 2. Using react via CDN
 3. Setup react app via Webpack
 4. Module 4
-	5. Introduction to JSX
-	6. Element vs Component
-	7. Conditional rendering
+	- Introduction to JSX
+	- Element vs Component
+	- Conditional rendering
 8. Module 5
 	9. Intro to props and children 
 	10. What are import, and export terminologies
