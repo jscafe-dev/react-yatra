@@ -8,22 +8,22 @@
 	- Element vs Component
 	- Conditional rendering
 8. Module 5
-	9. Intro to props and children 
-	10. What are import, and export terminologies
+	- Intro to props and children 
+	-  What are import, and export terminologies
 11. Module 6
-	12. How to render data from lists 
-	13. Importance of keys prop
+	- How to render data from lists 
+	- Importance of keys prop
 14. Module 7
-	15. What are hooks
-	16. Understanding useState
-	17. What is re-render
-	18. Misuse of state variables
+	- What are hooks
+	- Understanding useState
+	- What is re-render
+	- Misuse of state variables
 19. What is React Fiber and Reconciliation
 20. Exploring UseEffect hook
 21. All about useLayoutEffect
 22. Module 11
-	23. All about useRef Hook 
-	24. forwardRef API
+	- All about useRef Hook 
+	- forwardRef API
 25.  All about useCallback
 26. All about useMemo Hook
 27. Understanding Memo API
